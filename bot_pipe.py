@@ -10,6 +10,7 @@ class BotPipe(Sprite):
         self.screen = fb_game.screen
         self.settings = fb_game.settings
 
+        # Load Bottom Pipe image + initialize rect
         self.image = pygame.image.load('images/botpipe.png')
         self.rect = self.image.get_rect()
         
@@ -20,9 +21,11 @@ class BotPipe(Sprite):
     # Returns true if the pipe is at the edge of the screen
     def check_edges(self):
         screen_rect = self.screen.get_get_rect()
-
+        
         if self.rect.right >= screen_rect.right or self.rect.left <= 0:
             return True
+        else:
+            return False
 
     # Moves the pipe left
     def update(self):
